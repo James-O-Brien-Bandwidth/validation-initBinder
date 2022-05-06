@@ -19,12 +19,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/simpledto")
 public class SimpleDtoController {
+
+	//Guide: https://phoenixnap.com/kb/spring-boot-validation-for-rest-services
+
+	//InitBinder hides the validation logic
+	//1 Code will not move into controller logic until the springSimpleDtoValidator binder is passed
+	//Example in trunk:
+		//@InitBinder("regulationAddressDidIdLinkSearch")
+
+	//Both solutions are great for business logic validations
+
 	@Autowired
 	private SimpleDtoService simpleDtoService;
 
 	@Autowired
 	private SpringSimpleDtoValidator springSimpleDtoValidator;
-
+//So we could add as many validators as we require
 	@InitBinder("simpleDto")
 	public void initMerchantOnlyBinder(WebDataBinder binder) {
 		binder.addValidators(springSimpleDtoValidator);

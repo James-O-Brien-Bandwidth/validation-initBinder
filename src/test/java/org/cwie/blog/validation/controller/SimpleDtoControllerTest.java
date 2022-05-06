@@ -51,7 +51,7 @@ public class SimpleDtoControllerTest {
 		simpleDto.setCategory("simple1");
 		simpleDto.setActive(true);
 		simpleDto.setOrder("asc");
-		simpleDto.setCreatedDatetime(new Date());
+//		simpleDto.setCreatedDatetime(new Date());
 
 		String body = objectMapper.writeValueAsString(simpleDto);
 
